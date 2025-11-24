@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Julia ÅM/yur/Content/../../Downloads/sample-runner-main/sample-runner-main/def-runner/spineboy_images/front-bracer.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File>front-bracer.png</File>
+  </DestFiles>
+</SourceFileCollection>
