@@ -35,7 +35,6 @@ public class Game1 : Game
     private float jumpspeed = -800f;
     private float groundy;
     private bool isonground = false;
-    private bool isonplatform = false;
 
     private float worldwidth = 3000f;
     private Vector2 cameraPosition;
@@ -146,7 +145,6 @@ public class Game1 : Game
                     playerPosition.Y = platform.Top - picture.Height;
                     playerVelocity.Y = 0;
                     isonground = true;
-                    isonplatform = true;
                 }
             }
         }
