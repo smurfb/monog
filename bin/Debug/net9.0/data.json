@@ -1,0 +1,16 @@
+{
+    "Rectangles": [ 
+        { "X": 550, "Y": 450, "Width": 100, "Height": 20 },
+        { "X": 300, "Y": 350, "Width": 70, "Height": 20 },
+        { "X": 100, "Y": 250, "Width": 200, "Height": 20 },
+        { "X": 800, "Y": 150, "Width": 100, "Height": 20 },
+        { "X": 200, "Y": 100, "Width": 150, "Height": 20 },
+        { "X": 600, "Y": 300, "Width": 120, "Height": 20 },
+        { "X": 1100, "Y": 200, "Width": 80, "Height": 20 },
+        { "X": -50, "Y": 400, "Width": 60, "Height": 20 },
+        { "X": -700, "Y": 500, "Width": 90, "Height": 20 },
+        { "X": 0, "Y": 600, "Width": 300, "Height": 20 },
+        { "X": -350, "Y": 50, "Width": 110, "Height": 20 },
+        { "X": -500, "Y": 700, "Width": 130, "Height": 20 }
+    ] 
+}

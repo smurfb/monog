@@ -4,8 +4,21 @@ using System.Runtime.Intrinsics.X86;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Text.Json;
 
 namespace yur;
+public class RectangleData
+{
+    public int X { get; set; }
+    public int Y { get; set; }
+    public int Width { get; set; }
+    public int Height { get; set; }
+}
+public class RectanglesFile
+{
+    public List<RectangleData> Rectangles { get; set; }
+}
+
 
 public class Game1 : Game
 {
@@ -59,15 +72,28 @@ public class Game1 : Game
 
         groundy = viewport.Height - picture.Height;
 
+        string json = System.IO.File.ReadAllText("data.json");
+        RectanglesFile data = JsonSerializer.Deserialize<RectanglesFile>(json);
+
+        if(data != null)
+        {
+            for(int i = 0; i < data.Rectangles.Count; i++)
+            {
+                RectangleData rect = data.Rectangles[i];
+                platforms.Add(new Rectangle(rect.X, rect.Y, rect.Width, rect.Height));
+            }
+        }
+       /* 
         platforms.Add(new Rectangle(550,450,200,20));
         platforms.Add(new Rectangle(300,350,200,20));
         platforms.Add(new Rectangle(100,550,200,20));
-        platforms.Add(new Rectangle(750,250,200,20));
+        platforms.Add(new Rectangle(750,250,200,20)); */
 
         cameraPosition = Vector2.Zero;
         
         // TODO: use this.Content to load your game content here
     }
+    
 
     protected override void Update(GameTime gameTime)
     {
@@ -150,7 +176,7 @@ public class Game1 : Game
         foreach(var platform in platforms)
         {
             var screenRect = new Rectangle((int)(platform.X - cameraPosition.X), platform.Y, platform.Width, platform.Height);
-            _spriteBatch.Draw(pixel, screenRect, Color.Azure);  
+            _spriteBatch.Draw(pixel, screenRect, Color.Azure); 
         }
 
         var playerScreenPosition = new Vector2(
