@@ -16,13 +16,24 @@ public class Danger
 
 }
 
+
 public class Bird : Danger
 {
-    public List<Vector2> PatrolPoints { get; set; } //velocity for droppings
-    public Vector2 Velocity { get; set; }
+    public Vector2 DropVelocity { get; set; }
+    static void Droppings (Texture2D texture, List<Vector2> drop, Rectangle hitbox, Vector2 position)
+    {
+        
+        for (int i = 0; i < drop.Count; i++)
+        {
+            drop[i] = new Vector2(drop[i].X, drop[i].Y + 5); //gravity effect
+            Rectangle dropHitbox = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+            // Here you would typically draw the dropping using the texture and dropHitbox
+        }
+    }
+    
     public Bird(Vector2 position, Rectangle hitbox, Texture2D texture) : base(position, hitbox, texture)
     {
-        PatrolPoints = new List<Vector2>();
+        
     }
 }
 
