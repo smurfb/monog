@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>c:/Users/Julia ÅM/yur/Content/../../Downloads/sample-runner-main/sample-runner-main/def-runner/spineboy_images/front-bracer.png</File>
+    <File>C:/Users/Julia ÅM/yur/Content/mushroom sprite (2).png</File>
   </SourceFiles>
   <DestFiles>
-    <File>front-bracer.png</File>
+    <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

@@ -33,6 +33,6 @@ C:\Users\Julia ÅM\yur\obj\Debug\net9.0\yur.genruntimeconfig.cache
 C:\Users\Julia ÅM\yur\obj\Debug\net9.0\ref\yur.dll
 c:\Users\Julia ÅM\yur\bin\Debug\net9.0\Content\Zoja.xnb
 c:\Users\Julia ÅM\yur\bin\Debug\net9.0\Content\ChatGPT Image Nov 6, 2025, 10_48_41 AM.xnb
-c:\Users\Julia ÅM\yur\bin\Debug\net9.0\Content\front-bracer.xnb
 c:\Users\Julia ÅM\yur\bin\Debug\net9.0\Content\ghost.xnb
 c:\Users\Julia ÅM\yur\obj\Debug\net9.0\yur.sourcelink.json
+c:\Users\Julia ÅM\yur\bin\Debug\net9.0\Content\mushroom sprite (2).xnb

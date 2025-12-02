@@ -28,13 +28,10 @@ public class Game1 : Game
 
     private List<Rectangle> platforms = new();
     private Texture2D pixel;
-    private Vector2 playerPosition; 
-    private Vector2 playerVelocity;
-    private float movespeed = 200f;
     private float gravity = 1200f;
-    private float jumpspeed = -800f;
-    private float groundy;
-    private bool isonground = false;
+    public int groundy;
+
+    Player player = new();
 
     private float worldwidth = 3000f;
     private Vector2 cameraPosition;
@@ -60,10 +57,11 @@ public class Game1 : Game
         pixel = new Texture2D(GraphicsDevice, 1, 1);
         pixel.SetData(new[] { Color.Azure });
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        picture = Content.Load<Texture2D>("front-bracer");
+        picture = Content.Load<Texture2D>("mushroom sprite (2)");
+  
 
 
-        playerPosition = new Vector2(
+        player.Position = new Vector2(
             100f,
             viewport.Height /2f - picture.Height/2f
             
@@ -106,59 +104,60 @@ public class Game1 : Game
 
         if(keyboard.IsKeyDown(Keys.A))
         {
-            playerPosition.X -= movespeed * dt;
+            player.Position.X -= player.Speed * dt;
         }
         if(keyboard.IsKeyDown(Keys.D))
         {
-            playerPosition.X += movespeed * dt;
+            player.Position.X += player.Speed * dt;
         }
 
-        playerVelocity.Y += gravity * dt;
+        player.Velocity.Y += gravity * dt;
 
-        if(keyboard.IsKeyDown(Keys.Space) && isonground)
+        if(keyboard.IsKeyDown(Keys.Space) && player.IsOnGround)
         {
-            playerVelocity.Y = jumpspeed;
-            isonground = false;
+            player.Velocity.Y = player.JumpSpeed;
+            player.IsOnGround = false;
         }
 
-        float targetCamX = playerPosition.X - viewport.Width / 2f;
+        float targetCamX = player.Position.X - viewport.Width / 2f;
 
 
 
-        playerPosition += playerVelocity * dt;
+        player.Position += player.Velocity * dt;
 
-        Rectangle playerRect = new Rectangle(
-        (int)playerPosition.X,
-        (int)playerPosition.Y,
+        Rectangle playerHitbox = new Rectangle(
+        (int)player.Position.X,
+        (int)player.Position.Y,
         picture.Width,
         picture.Height
         );
 
         foreach (var platform in platforms)
         {
-            if (playerRect.Intersects(platform))
+            if (playerHitbox.Intersects(platform))
             {
                 // Check if falling onto platform
-                if (playerVelocity.Y > 0 &&
-                    playerRect.Bottom - playerVelocity.Y * dt <= platform.Top)
+                if (player.Velocity.Y > 0 &&
+                    playerHitbox
+                    .Bottom - player.Velocity.Y * dt <= platform.Top)
                 {
-                    playerPosition.Y = platform.Top - picture.Height;
-                    playerVelocity.Y = 0;
-                    isonground = true;
+                    player.Position.Y = platform.Top - picture.Height;
+                    player.Velocity.Y = 0;
+                    player.IsOnGround = true;
                 }
             }
         }
 
-        if(playerPosition.Y >= groundy)
+        if(player.Position.Y >= groundy)
         {
-            playerPosition.Y = groundy;
-            playerVelocity.Y = 0;
-            isonground = true;
-        }
+            player.Position.Y = groundy;
+            player.Velocity.Y = 0;
+            player.IsOnGround = true;
+        } 
 
         // TODO: Add your update logic here
 
-        playerPosition.X = MathHelper.Clamp(playerPosition.X, -worldwidth - picture.Width, worldwidth - picture.Width);
+        player.Position.X = MathHelper.Clamp(player.Position.X, -worldwidth - picture.Width, worldwidth - picture.Width);
         
         cameraPosition.X = targetCamX;
 
@@ -178,11 +177,11 @@ public class Game1 : Game
         }
 
         var playerScreenPosition = new Vector2(
-        playerPosition.X - cameraPosition.X,
-        playerPosition.Y - cameraPosition.Y
+        player.Position.X - cameraPosition.X,
+        player.Position.Y - cameraPosition.Y
         );
 
-        _spriteBatch.Draw(picture, playerScreenPosition, Color.White);
+        _spriteBatch.Draw(picture, playerScreenPosition, null, Color.White, 0f, new Vector2(0,0), 1f, SpriteEffects.None, 0f);
 
 
         _spriteBatch.End();

@@ -10,8 +10,8 @@ public class Danger
     public Danger(Vector2 position, Rectangle hitbox, Texture2D texture)
     {
         Position = position;
-        Texture = texture;
         Hitbox = hitbox;
+        Texture = texture;
     }
 
 }
@@ -47,9 +47,12 @@ public class Spike : Danger
 public class Chaser : Danger
 {
     public float Speed { get; set; }
-
-    public Chaser(Vector2 position, Rectangle hitbox, Texture2D texture, float speed) : base(position, hitbox, texture)
+    public Player Target {get; set;}
+    public Vector2 EnemyCamera {get; set;}
+    public Chaser(Vector2 position, Rectangle hitbox, Texture2D texture, float speed, Player target, Vector2 enemyCamera) : base(position, hitbox, texture)
     {
         Speed = speed;
+        Target = target;
+        EnemyCamera = enemyCamera;
     }
 }

@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../../Downloads/sample-runner-main/sample-runner-main/def-runner/spineboy_images/front-bracer.png
+#begin mushroom sprite (2).png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,4 +23,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../../Downloads/sample-runner-main/sample-runner-main/def-runner/spineboy_images/front-bracer.png;front-bracer.png
+/build:mushroom sprite (2).png
+

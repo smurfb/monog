@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/Julia ÅM/yur/Content/../../Downloads/sample-runner-main/sample-runner-main/def-runner/spineboy_images/front-bracer.png</SourceFile>
-  <SourceTime>2025-11-17T09:58:40.3588915+01:00</SourceTime>
-  <DestFile>c:/Users/Julia ÅM/yur/Content/bin/DesktopGL/Content/front-bracer.xnb</DestFile>
-  <DestTime>2025-11-27T13:26:13.6794229+01:00</DestTime>
+  <SourceFile>c:/Users/Julia ÅM/yur/Content/mushroom sprite.png</SourceFile>
+  <SourceTime>2025-12-02T13:40:08.0448657+01:00</SourceTime>
+  <DestFile>c:/Users/Julia ÅM/yur/Content/bin/DesktopGL/mushroom sprite.xnb</DestFile>
+  <DestTime>2025-12-02T13:56:20.8364316+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-10-20T16:25:32+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
