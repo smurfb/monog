@@ -7,6 +7,8 @@ public class Danger
     public Texture2D Texture {get; set; }
     public Rectangle Hitbox { get; set; }
 
+    public List<Danger> dangerList { get; set; } = new List<Danger>();
+
     public Danger(Vector2 position, Rectangle hitbox, Texture2D texture)
     {
         Position = position;

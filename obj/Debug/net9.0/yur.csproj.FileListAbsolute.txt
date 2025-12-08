@@ -36,3 +36,5 @@ c:\Users\Julia ÅM\yur\bin\Debug\net9.0\Content\ChatGPT Image Nov 6, 2025, 10_48
 c:\Users\Julia ÅM\yur\bin\Debug\net9.0\Content\ghost.xnb
 c:\Users\Julia ÅM\yur\obj\Debug\net9.0\yur.sourcelink.json
 c:\Users\Julia ÅM\yur\bin\Debug\net9.0\Content\mushroom sprite (2).xnb
+c:\Users\Julia ÅM\yur\bin\Debug\net9.0\Content\background1.xnb
+c:\Users\Julia ÅM\yur\bin\Debug\net9.0\Content\trees.xnb

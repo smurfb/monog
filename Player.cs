@@ -6,8 +6,8 @@ public class Player
     public Vector2 Position;
     public Vector2 Velocity;
     public Rectangle Hitbox { get; set; }
-    public float Speed = 750f;
-    public float JumpSpeed = -900f;
+    public float Speed = 350f;
+    public float JumpSpeed = -800f;
     public bool IsOnGround;
 
     public Player()

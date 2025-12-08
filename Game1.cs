@@ -26,6 +26,14 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     Texture2D picture;
 
+    Texture2D backgroundTexture;
+    Texture2D backgroundTexture2;
+    Background background;
+    Background background2;
+
+    Texture2D patrollerTexture;
+    Danger patroller;
+
     private List<Rectangle> platforms = new();
     private Texture2D pixel;
     private float gravity = 1200f;
@@ -58,7 +66,16 @@ public class Game1 : Game
         pixel.SetData(new[] { Color.Azure });
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         picture = Content.Load<Texture2D>("mushroom sprite (2)");
-  
+
+        patrollerTexture = Content.Load<Texture2D>("patroller");
+        patroller = new Chaser(new Vector2(600, 400), new Rectangle(0,0,patrollerTexture.Width, patrollerTexture.Height), patrollerTexture, 100f, player, cameraPosition);
+        patroller.dangerList.Add(patroller);
+
+        backgroundTexture = Content.Load<Texture2D>("background1");
+        backgroundTexture2 = Content.Load<Texture2D>("trees");
+        background = new Background(backgroundTexture, 0.1f);
+        background2 = new Background(backgroundTexture2, 0.3f);
+    
 
 
         player.Position = new Vector2(
@@ -161,6 +178,8 @@ public class Game1 : Game
         
         cameraPosition.X = targetCamX;
 
+        
+
         base.Update(gameTime);
     }
 
@@ -170,19 +189,26 @@ public class Game1 : Game
 
         _spriteBatch.Begin();
 
-        foreach(var platform in platforms)
-        {
-            var screenRect = new Rectangle((int)(platform.X - cameraPosition.X), platform.Y, platform.Width, platform.Height);
-            _spriteBatch.Draw(pixel, screenRect, Color.Azure); 
-        }
 
         var playerScreenPosition = new Vector2(
         player.Position.X - cameraPosition.X,
         player.Position.Y - cameraPosition.Y
         );
+        
+        Vector2 backgroundPosition = new Vector2(-cameraPosition.X * background.Speed - 200, 0);
+        Vector2 backgroundPosition_2 = new Vector2(-cameraPosition.X * background.Speed - 400, 0);
+        Vector2 backgroundPosition2 = new Vector2(-cameraPosition.X * background2.Speed - 200, -400);
 
+        _spriteBatch.Draw(backgroundTexture, backgroundPosition, null, Color.White, 0f, new Vector2(0,0), 2f, SpriteEffects.None, 0f);
+        _spriteBatch.Draw(backgroundTexture, backgroundPosition_2, null, Color.White, 0f, new Vector2(0,0), 2f, SpriteEffects.None, 0f);
+        _spriteBatch.Draw(backgroundTexture2, backgroundPosition2, null, Color.White, 0f, new Vector2(0,0), 3f, SpriteEffects.None, 0f);
         _spriteBatch.Draw(picture, playerScreenPosition, null, Color.White, 0f, new Vector2(0,0), 1f, SpriteEffects.None, 0f);
 
+        foreach(var platform in platforms)
+        {
+            var screenRect = new Rectangle((int)(platform.X - cameraPosition.X), platform.Y, platform.Width, platform.Height);
+            _spriteBatch.Draw(pixel, screenRect, Color.Azure); 
+        }
 
         _spriteBatch.End();
         // TODO: Add your drawing code here
