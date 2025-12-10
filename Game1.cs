@@ -96,6 +96,13 @@ public class Game1 : Game
             }
         }
 
+        platforms.Add(new Rectangle(
+                -5000,           
+                groundy,        
+                (int)worldwidth * 3,  
+                100              
+            ));
+
         cameraPosition = Vector2.Zero;
 
         patrollerTexture = Content.Load<Texture2D>("patroller");
@@ -147,19 +154,21 @@ public class Game1 : Game
             picture.Height
         );
         player.IsOnGround = false;
+
         foreach (var platform in platforms)
+{
+        if (playerHitbox.Intersects(platform))
         {
-            if (playerHitbox.Intersects(platform))
+            float feet = playerposition.Y + picture.Height;
+            
+            if (playervelocity.Y >= 0 && Math.Abs(feet - platform.Top) < 20)
             {
-                if (playervelocity.Y > 0 &&
-                    playerHitbox.Bottom - playervelocity.Y * dt <= platform.Top)
-                {
-                    playerposition.Y = platform.Top - picture.Height;
-                    playervelocity.Y = 0;
-                    player.IsOnGround = true;
-                }
+                playerposition.Y = platform.Top - picture.Height;
+                playervelocity.Y = 0;
+                player.IsOnGround = true;
             }
         }
+}
 
         if (playerposition.Y >= groundy)
         {

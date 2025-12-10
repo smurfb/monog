@@ -9,6 +9,7 @@ public static class EnemyFactory
     {
         var enemy = new Enemy(position, texture);
         enemy.Components.Add(new ChaseComponent(100f));
+        enemy.Components.Add(new GravityComponent());
         return enemy;
     }
     

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joel\\yur\\yur.csproj": {}
+    "c:\\Users\\joel\\yur\\yur.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joel\\yur\\yur.csproj": {
+    "c:\\Users\\joel\\yur\\yur.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joel\\yur\\yur.csproj",
+        "projectUniqueName": "c:\\Users\\joel\\yur\\yur.csproj",
         "projectName": "yur",
-        "projectPath": "C:\\Users\\joel\\yur\\yur.csproj",
+        "projectPath": "c:\\Users\\joel\\yur\\yur.csproj",
         "packagesPath": "C:\\Users\\joel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joel\\yur\\obj\\",
+        "outputPath": "c:\\Users\\joel\\yur\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joel\\AppData\\Roaming\\NuGet\\NuGet.Config"
