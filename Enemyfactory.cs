@@ -24,7 +24,6 @@ public static class EnemyFactory
     {
         var enemy = new Enemy(position, texture);
         enemy.Components.Add(new ChaseComponent(80f));
-        // Ingen GravityComponent = kan flyga!
         return enemy;
     }
 }
