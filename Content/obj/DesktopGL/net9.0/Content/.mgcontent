@@ -4,11 +4,15 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Julia ÅM/yur/Content/background1.jfif</File>
-    <File>C:/Users/Julia ÅM/yur/Content/mushroom sprite (2).png</File>
-    <File>C:/Users/Julia ÅM/yur/Content/trees.png</File>
+    <File>c:/Users/joel/yur/Content/background1.jfif</File>
+    <File>c:/Users/joel/yur/Content/mushroom sprite (2).png</File>
+    <File>c:/Users/joel/yur/Content/MyFont.spritefont</File>
+    <File>c:/Users/joel/yur/Content/patroller.png</File>
+    <File>c:/Users/joel/yur/Content/trees.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

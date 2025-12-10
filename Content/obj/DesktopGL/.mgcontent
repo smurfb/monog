@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>c:/Users/joel/yur/Content/patroller.png</File>
     <File>c:/Users/Julia ÅM/yur/Content/mushroom sprite.png</File>
   </SourceFiles>
   <DestFiles>
