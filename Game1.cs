@@ -114,7 +114,11 @@ public class Game1 : Game
 
         
         gameObjects.Add(new PowerUp(new Vector2(800, 400), PowerUpType.JumpBoost, 30, 10f));
+        gameObjects.Add(new PowerUp(new Vector2(700, 200), PowerUpType.DoubleJump, 30, 10f));
         gameObjects.Add(new Teleporter(new Vector2(600, 400), new Vector2(1500, 300), 50, 50));
+        gameObjects.Add(new Teleporter(new Vector2(100, 400), new Vector2(900, 300), 50, 50));
+        gameObjects.Add(new PowerUp(new Vector2(200, 400), PowerUpType.SpeedBoost, 30, 10f));
+        
 
 
 
@@ -124,6 +128,7 @@ public class Game1 : Game
 {
     var viewport = GraphicsDevice.Viewport;
     var keyboard = Keyboard.GetState();
+
     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
         Keyboard.GetState().IsKeyDown(Keys.Escape))
         Exit();
@@ -265,7 +270,7 @@ public class Game1 : Game
         {
             enemy.Draw(_spriteBatch, cameraPosition);
         }
-        _spriteBatch.DrawString(font, "Player Deaths: " + playerdeathcount.ToString(), new Vector2(100, 80), Color.White);
+        _spriteBatch.DrawString(font, "Player has been hit: " + playerdeathcount.ToString(), new Vector2(100, 80), Color.White);
 
         foreach (var obj in gameObjects)
         {

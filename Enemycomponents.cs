@@ -33,6 +33,7 @@ public class PatrolComponent : IEnemyComponent
     
     public PatrolComponent(float leftBound, float rightBound, float speed = 80f)
     {
+        //Sätt gränserna
         LeftBound = leftBound;
         RightBound = rightBound;
         Speed = speed;

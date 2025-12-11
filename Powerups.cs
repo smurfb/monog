@@ -41,7 +41,7 @@ public class PowerUp : IGameObject
     {
         if (!IsActive) return;
         
-        // Animation för att få snurra
+        
         _bobTimer += dt * 2f;
         _bobOffset = (float)Math.Sin(_bobTimer) * 8f;
         _rotationTimer += dt;
@@ -98,7 +98,7 @@ public class PowerUp : IGameObject
             _ => Color.Green
         };
         
-        // animation, roterande romb
+        
         var rect = new Rectangle(0, 0, Hitbox.Width, Hitbox.Height);
         var origin = new Vector2(Hitbox.Width / 2f, Hitbox.Height / 2f);
         
