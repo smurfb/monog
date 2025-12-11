@@ -35,6 +35,8 @@ public class Game1 : Game
     // Lista för alla fiender
     private List<Enemy> enemies = new();
 
+    private List<IGameObject> gameObjects = new();
+
     private List<Rectangle> platforms = new();
     private Texture2D pixel;
     private float gravity = 1200f;
@@ -110,6 +112,12 @@ public class Game1 : Game
         enemies.Add(EnemyFactory.CreatePatroller(new Vector2(1000, 400), patrollerTexture, 900, 1100));
         font = Content.Load<SpriteFont>("MyFont");
 
+        
+        gameObjects.Add(new PowerUp(new Vector2(800, 400), PowerUpType.JumpBoost, 30, 10f));
+        gameObjects.Add(new Teleporter(new Vector2(600, 400), new Vector2(1500, 300), 50, 50));
+
+
+
         }
 
     protected override void Update(GameTime gameTime)
@@ -156,19 +164,25 @@ public class Game1 : Game
         player.IsOnGround = false;
 
         foreach (var platform in platforms)
-{
-        if (playerHitbox.Intersects(platform))
         {
-            float feet = playerposition.Y + picture.Height;
-            
-            if (playervelocity.Y >= 0 && Math.Abs(feet - platform.Top) < 20)
+            if (playerHitbox.Intersects(platform))
             {
-                playerposition.Y = platform.Top - picture.Height;
-                playervelocity.Y = 0;
-                player.IsOnGround = true;
+                float feet = playerposition.Y + picture.Height;
+                
+                if (playervelocity.Y >= 0 && Math.Abs(feet - platform.Top) < 20)
+                {
+                    playerposition.Y = platform.Top - picture.Height;
+                    playervelocity.Y = 0;
+                    player.IsOnGround = true;
+                }
             }
         }
-}
+
+        //vandra genom objekten
+        foreach (var obj in gameObjects)
+        {
+            obj.Update(dt, playerHitbox, ref player);
+        }
 
         if (playerposition.Y >= groundy)
         {
@@ -245,6 +259,12 @@ public class Game1 : Game
             enemy.Draw(_spriteBatch, cameraPosition);
         }
         _spriteBatch.DrawString(font, "Player Deaths: " + playerdeathcount.ToString(), new Vector2(100, 80), Color.White);
+
+        foreach (var obj in gameObjects)
+        {
+
+            obj.Draw(_spriteBatch, cameraPosition, pixel);
+        }
 
 
         _spriteBatch.End();

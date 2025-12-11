@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\joel\\yur\\yur.csproj": {}
+    "/Users/mxw692/monog/yur.csproj": {}
   },
   "projects": {
-    "c:\\Users\\joel\\yur\\yur.csproj": {
+    "/Users/mxw692/monog/yur.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\joel\\yur\\yur.csproj",
+        "projectUniqueName": "/Users/mxw692/monog/yur.csproj",
         "projectName": "yur",
-        "projectPath": "c:\\Users\\joel\\yur\\yur.csproj",
-        "packagesPath": "C:\\Users\\joel\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\joel\\yur\\obj\\",
+        "projectPath": "/Users/mxw692/monog/yur.csproj",
+        "packagesPath": "/Users/mxw692/.nuget/packages/",
+        "outputPath": "/Users/mxw692/monog/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\joel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/mxw692/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.307/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

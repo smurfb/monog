@@ -3,11 +3,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace yur;
 
-public class Teleporter
+public class Teleporter : IGameObject
 {
     public Vector2 Position { get; set; }
     public Vector2 Destination { get; set; }
     public Rectangle Hitbox { get; set; }
+    public bool IsActive { get; set; } = true;
     
     private float _cooldown = 0f;
     
@@ -23,20 +24,24 @@ public class Teleporter
         );
     }
     
-    public void Update(float dt, Rectangle playerHitbox, ref Vector2 playerPosition)
+    public void Update(float dt, Rectangle playerHitbox, ref Player player)
     {
+        if (!IsActive) return;
+        
         if (_cooldown > 0)
             _cooldown -= dt;
         
         if (playerHitbox.Intersects(Hitbox) && _cooldown <= 0)
         {
-            playerPosition = Destination;
-            _cooldown = 0.5f; 
+            player.Position = Destination;
+            _cooldown = 0.5f;
         }
     }
     
     public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition, Texture2D pixel)
     {
+        if (!IsActive) return;
+        
         var screenRect = new Rectangle(
             (int)(Position.X - cameraPosition.X),
             (int)(Position.Y - cameraPosition.Y),

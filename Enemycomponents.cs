@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace yur;
 
-// Komponent: Jaga spelaren
+// component, jaga spelaren, chaser
 public class ChaseComponent : IEnemyComponent
 {
     public float Speed { get; set; }
@@ -15,7 +15,7 @@ public class ChaseComponent : IEnemyComponent
     
     public void Update(Enemy enemy, float dt, List<Rectangle> platforms, float gravity, Player player)
     {
-        // Jaga endast på X-axeln
+        // Jagar endast i X-led
         if (player.Position.X < enemy.Position.X)
             enemy.Velocity = new Vector2(-Speed, enemy.Velocity.Y);
         else if (player.Position.X > enemy.Position.X)
@@ -23,7 +23,7 @@ public class ChaseComponent : IEnemyComponent
     }
 }
 
-// Komponent: Patrullera mellan två punkter
+//  patroller, går fram å tillbaka som en döing
 public class PatrolComponent : IEnemyComponent
 {
     public float LeftBound { get; set; }
@@ -50,39 +50,7 @@ public class PatrolComponent : IEnemyComponent
     }
 }
 
-// Komponent: Hoppa om spelaren är nära
-public class JumpWhenCloseComponent : IEnemyComponent
-{
-    public float JumpForce { get; set; }
-    public float DetectionRange { get; set; }
-    public float Cooldown { get; set; }
-    private float _timer = 0f;
-    private bool _isOnGround = true;
-    
-    public JumpWhenCloseComponent(float jumpForce = -400f, float detectionRange = 200f, float cooldown = 2f)
-    {
-        JumpForce = jumpForce;
-        DetectionRange = detectionRange;
-        Cooldown = cooldown;
-    }
-    
-    public void Update(Enemy enemy, float dt, List<Rectangle> platforms, float gravity, Player player)
-    {
-        _timer -= dt;
-        
-        float distance = Vector2.Distance(enemy.Position, player.Position);
 
-        if (distance < DetectionRange && _timer <= 0 && _isOnGround)
-        {
-            enemy.Velocity = new Vector2(enemy.Velocity.X, JumpForce);
-            _timer = Cooldown;
-            _isOnGround = false;
-        }
-        
-        if (enemy.Velocity.Y >= 0)
-            _isOnGround = true;
-    }
-}
 
 public class GravityComponent : IEnemyComponent
 {

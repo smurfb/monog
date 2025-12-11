@@ -10,7 +10,7 @@ public interface IEnemyComponent
     void Update(Enemy enemy, float dt, List<Rectangle> platforms, float gravity, Player player);
 }
 
-// Huvudklassen för alla fiender
+// grunden/huvudklass för alla våra fiender
 public class Enemy
 {
     public Vector2 Position { get; set; }
@@ -19,7 +19,7 @@ public class Enemy
     public Texture2D Texture { get; set; }
     public int Health { get; set; }
     
-    // Lista med komponenter som fienden har
+    // lista med components som en fiende kan ha
     public List<IEnemyComponent> Components { get; set; } = new();
     
     public Enemy(Vector2 position, Texture2D texture)
@@ -33,13 +33,13 @@ public class Enemy
     
     public void Update(float dt, List<Rectangle> platforms, float gravity, Player player)
     {
-        // Kör alla komponenter
+        //vanfrar genom cpompoents å kör update
         foreach (var component in Components)
         {
             component.Update(this, dt, platforms, gravity, player);
         }
         
-        // Applicera velocity
+        // applicera fart/veloctiy
         Position += Velocity * dt;
         
         UpdateHitbox();
