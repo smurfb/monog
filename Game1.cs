@@ -199,8 +199,7 @@ public class Game1 : Game
 
         cameraPosition.X = targetCamX;
 
-        player.Position = playerposition;
-        player.Velocity = playervelocity;
+
 
         //kör genom alla fiender i listan
         foreach (var enemy in enemies)
@@ -218,6 +217,9 @@ public class Game1 : Game
 
             }
         }
+
+        player.Position = playerposition;
+        player.Velocity = playervelocity;
 
         base.Update(gameTime);
     }
